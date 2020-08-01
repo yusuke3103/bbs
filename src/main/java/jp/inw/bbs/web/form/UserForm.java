@@ -1,10 +1,21 @@
 package jp.inw.bbs.web.form;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class UserForm {
 
+	@NotBlank
+	@Size(max=10)
 	private String userId;
-	private String displaynm;
+	@NotBlank
+	@Size(max=20)
+	private String displayNm;
+	@NotBlank
+	@Size(max=10)
 	private String password;
+	@NotBlank
+	@Size(max=10)
 	private String rePassword;
 	/**
 	 * @return the userId
@@ -19,16 +30,16 @@ public class UserForm {
 		this.userId = userId;
 	}
 	/**
-	 * @return the displaynm
+	 * @return the displayNm
 	 */
-	public String getDisplaynm() {
-		return displaynm;
+	public String getDisplayNm() {
+		return displayNm;
 	}
 	/**
-	 * @param displaynm the displaynm to set
+	 * @param displaynm the displayNm to set
 	 */
-	public void setDisplaynm(String displaynm) {
-		this.displaynm = displaynm;
+	public void setDisplayNm(String displayNm) {
+		this.displayNm = displayNm;
 	}
 	/**
 	 * @return the password
@@ -54,6 +65,7 @@ public class UserForm {
 	public void setRePassword(String rePassword) {
 		this.rePassword = rePassword;
 	}
+
 	
 	
 	

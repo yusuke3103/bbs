@@ -6,11 +6,11 @@
 	<title>BBS | ユーザ登録</title>
 </head>
 <body>
-<form th:action="@{/user/regist}" method="post">
-<p><label for="">ユーザID：</label><input type="text" name="userId"></p>
-<p><label for="">表示名：</label><input type="text" name="displaynm"></p>
-<p><label for="">パスワード：</label><input type="text" name="password"></p>
-<p><label for="">パスワード（確認）：</label><input type="text" name="rePassword"></p>
+<form th:action="@{/user/regist}" method="post" th:object="${userForm}">
+<p><label for="">ユーザID：</label><input type="text" th:field="*{userId}"><span th:errors=*{userId}></span></p>
+<p><label for="">表示名：</label><input type="text" th:field="*{displayNm}"><span th:errors=*{displayNm}></span></p>
+<p><label for="">パスワード：</label><input type="password" th:field="*{password}"><span th:errors=*{password}></span></p>
+<p><label for="">パスワード（確認）：</label><input type="password" th:field="*{rePassword}"><span th:errors=*{rePassword}></span></p>
 <p><input type="submit" value="登録"><input type="reset"></p>
 </form>
 </body>

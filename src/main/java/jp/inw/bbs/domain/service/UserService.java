@@ -24,7 +24,7 @@ public class UserService {
 		User user = new User();
 		user.setUserid(form.getUserId());
 		user.setPassword(form.getPassword());
-		user.setDisplaynm(form.getDisplaynm());
+		user.setDisplaynm(form.getDisplayNm());
 		Date now = new Date();
 		user.setEntdt(now);
 		user.setUpddt(now);

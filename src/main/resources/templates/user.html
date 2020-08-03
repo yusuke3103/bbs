@@ -6,7 +6,10 @@
 	<title>BBS | ユーザ登録</title>
 </head>
 <body>
+
+
 <form th:action="@{/user/regist}" method="post" th:object="${userForm}">
+<p th:each="err : ${#fields.allErrors()}" th:text="${err}">共通エラーメッセージ表示エリア</p>
 <p><label for="">ユーザID：</label><input type="text" th:field="*{userId}"><span th:errors=*{userId}></span></p>
 <p><label for="">表示名：</label><input type="text" th:field="*{displayNm}"><span th:errors=*{displayNm}></span></p>
 <p><label for="">パスワード：</label><input type="password" th:field="*{password}"><span th:errors=*{password}></span></p>

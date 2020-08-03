@@ -33,10 +33,12 @@ public class UserController {
 		
 		
 		boolean res = userService.doRegist(form);
-		if (res) {
-			return "redirect:/";
+		if (res == false) {
+			result.reject("E001");
+			return user(form);
 		}
-		return "user";
+		
+		return "redirect:/";
 	}
 	
 }

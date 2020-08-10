@@ -12,26 +12,25 @@ import jp.inw.bbs.web.form.LoginForm;
 
 @Controller
 public class LoginController {
-
+	
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping("/login")
-	public String login() {
-		System.out.println("Debug");
-		return "session/login";
+	@RequestMapping(path="/login")
+	public String index() {
+		return "login";
 	}
-	
-	@RequestMapping(path = "/login/doLogin", method = RequestMethod.POST)
+
+	@RequestMapping(path="/login/doLogin", method=RequestMethod.POST)
 	public String doLogin(LoginForm form, HttpSession session) {
-		System.out.println(form.getUserId());
-		boolean result = loginService.doLogin(form,session);
-		if (result) {
+			
+		boolean isLogin = loginService.doLogin(form,session);
+		if (isLogin) {
 			return "redirect:/";
+		}else {
+			return "login";
 		}
 		
-		return "session/login";
 	}
-	
 	
 }

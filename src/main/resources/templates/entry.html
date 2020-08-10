@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>ユーザ登録</title>
+</head>
+<body>
+	<form th:action="@{/entry/doComment}" method="post">
+		<textarea rows="3" name="comment"></textarea>
+		<input type="submit" value="投稿">
+	</form>
+	<div th:object="${entryForm}">
+		<div th:each="entry : *{entries}">
+			<p th:text="${entry.userId}+'@'+${entry.displayNm}+' '+${#dates.format(entry.updDt, 'yyyy/MM/dd HH:mm')}"></p>
+			<p th:text="${entry.comment}"></p>
+		</div>
+	</div>
+</body>
+</html>

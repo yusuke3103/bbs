@@ -1,5 +1,8 @@
 package jp.inw.bbs.domain.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +19,17 @@ public class LoginService {
 	private UserRepository userRepository;
 	
 	public boolean doLogin(LoginForm form, HttpSession session) {
+		System.out.println("LoginService.doLogin");
+		System.out.println(form.getUserId());
 		
+		// ユーザIDを元にユーザを取得する。
 		User user = userRepository.getOne(form.getUserId());
 		
-		if (user != null && user.getPassword().equals(form.getPassword())){
-			session.setAttribute("userid", user.getUserid());
-			session.setAttribute("displaynm", user.getDisplaynm());
+		if (user.getPassword().equals(form.getPassword())) {
+			session.setAttribute("userid", form.getUserId());
 			return true;
 		}else {
 			return false;
 		}
 	}
-	
 }
